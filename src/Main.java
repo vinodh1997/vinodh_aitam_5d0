@@ -11,7 +11,7 @@ public class Main {
 		//You may test that your code works find here
 		//Please check that your code works and has no 
 		//compilation problems before to submit
-		StudentArrayOperation studentGroup = new StudentGroup(10);
+		StudentArrayOperation studentGroup = new StudentGroup(5);
 		
 		DateFormat format = new SimpleDateFormat(DATE_FORMAT);
 		
@@ -23,15 +23,14 @@ public class Main {
 			new Student(5, "narayana rao", format.parse("1996/05/12"), 100.0)
 		});
 		
-		// java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
+		/* java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
 		
-		/* System.out.println(studentGroup.getStudent(0));
-		
-		studentGroup.setStudent(new Student(6, "sfdsfsd sdf", format.parse("1996-08-13"), 98.0), 0);
+		studentGroup.setStudent(new Student(6, "sfdsfsd sdf", format.parse("1996/08/13"), 98.0), 0);
 		
 		System.out.println(studentGroup.getStudent(0)); */
 		
-		// studentGroup.add(new Student(7, "hghj ghjgj", format.parse("1997-10-26"), 78.0), 4);
+		/* studentGroup.add(new Student(7, "hghj ghjgj", format.parse("1997/10/26"), 78.0), 4);
+		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); */
 		
 		/* java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
 		studentGroup.remove(3);
@@ -80,7 +79,7 @@ public class Main {
 		
 		// java.util.Arrays.stream(studentGroup.getStudentsWithMaxAvgMark()).forEach(System.out :: println);
 		
-		System.out.println(studentGroup.getNextStudent(studentGroup.getStudent(0)));
+		// System.out.println(studentGroup.getNextStudent(studentGroup.getStudent(0)));
 	}
 
 }

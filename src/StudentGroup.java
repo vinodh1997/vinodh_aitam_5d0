@@ -47,9 +47,8 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		StudentGroup.requireNonNull(students);
 		
-		for (this.size = 0; size < students.length && students[size] != null; size++);
-		
-		this.students = students;
+		for (int i = 0; size != this.students.length && i < students.length && students[i] != null; i++)
+			this.students[size++] = students[i];
 	}
 
 	@Override
@@ -76,7 +75,7 @@ public class StudentGroup implements StudentArrayOperation {
 		/* for (int i = 0, size = students.length; i < size; i++)
 			students[i + 1] = students[i];
 		students[0] = student; */
-		Student[] newArray = getInstance(size + 1);		
+		Student[] newArray = new Student[size + 1];		
 		System.arraycopy(students, 0, newArray, 1, size);
 	
 		newArray[0] = student;
@@ -92,7 +91,7 @@ public class StudentGroup implements StudentArrayOperation {
 		/* for (int i = 0, size = students.length; i < size; i++)
 			if (students[i] != null)
 				students[i] = student; */
-		Student[] newArray = getInstance(size + 1);		
+		Student[] newArray = new Student[size + 1];		
 		System.arraycopy(students, 0, newArray, 0, size);
 	
 		newArray[size] = student;size++;
@@ -109,7 +108,7 @@ public class StudentGroup implements StudentArrayOperation {
 		Student[] newArray = null;
 		
 		if (students.length == size)
-			newArray = getInstance(size + 1);
+			newArray = new Student[size + 1];
 		
 		/* for (int i = 0; i < index; i++)
 			newArray[i] = students[i];	 */
@@ -128,7 +127,7 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		StudentGroup.rangeCheck(students, index);
 		
-		Student[] newArray = getInstance(size - 1);
+		Student[] newArray = new Student[size - 1];
 		
 		if (index == 0)
 			System.arraycopy(students, 1, newArray, 0, students.length-1);
@@ -163,7 +162,7 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		StudentGroup.rangeCheck(students, index);
 		
-		Student[] newArray = getInstance(index + 1);
+		Student[] newArray = new Student[index + 1];
 		System.arraycopy(students, 0, newArray, 0, index + 1);
 		
 		students = newArray;size = index + 1;
@@ -188,7 +187,7 @@ public class StudentGroup implements StudentArrayOperation {
 		StudentGroup.rangeCheck(students, index);
 		
 		int length = index + 1;// students.length - index - 1;
-		Student[] newArray = getInstance(length);
+		Student[] newArray = new Student[length];
 		System.arraycopy(students, 0, newArray, 0, length);
 		
 		students = newArray;size = length;
@@ -346,7 +345,7 @@ public class StudentGroup implements StudentArrayOperation {
 		for (int i = 0, size = students.length-1; i < size; i++)
 			if (student.equals(students[i]))
 				return students[i + 1];
-		return student;
+		return null;
 	}
 	
 	// Objects require non-null
@@ -370,9 +369,5 @@ public class StudentGroup implements StudentArrayOperation {
 			students[i] = list.get(i);
 		
 		return students;
-	}
-	
-	private Student[] getInstance(int size) {
-		return new Student[size];
 	}
 }
