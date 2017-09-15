@@ -228,22 +228,64 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		return null;
+		StudentGroup.requireNonNull(date);
+		
+		Date lessDate = new Date(date.getTime()- 86400000);
+		
+		List<Student> list = new ArrayList<>();
+		
+		for (int i = 0, size = students.length; i < size; i++) {
+			if (students[i].getBirthDate().equals(date) || students[i].getBirthDate().equals(lessDate)) {
+				list.add(students[i]);
+			}
+		}
+		
+		return StudentGroup.listToArray(list);
 	}
 
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
-		return null;
+		StudentGroup.requireNonNull(firstDate);
+		StudentGroup.requireNonNull(lastDate);
+		
+		List<Student> list = new ArrayList<>();
+		
+		for (int i = 0, size = students.length; i < size; i++) {
+			if (students[i].getBirthDate().equals(firstDate) 
+				|| students[i].getBirthDate().equals(lastDate)) {
+					list.add(students[i]);
+			} else if (students[i].getBirthDate().after(firstDate) 
+				&& students[i].getBirthDate().before(lastDate)) {
+					list.add(students[i]);
+			}
+		}
+		
+		return StudentGroup.listToArray(list);
 	}
 
 	@Override
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
-		return null;
+		StudentGroup.requireNonNull(date);
+		
+		LocalDateTime localDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+		localDateTime = localDateTime.plusDays(days);
+		Date daysAfterDate = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());		
+		
+		List<Student> list = new ArrayList<>();
+		
+		for (int i = 0, size = students.length; i < size; i++) {
+			if (students[i].getBirthDate().equals(date)) {
+				list.add(students[i]);
+			} else if (students[i].getBirthDate().after(date) && students[i].getBirthDate().before(daysAfterDate)) {
+				list.add(students[i]);
+			}
+		}
+		
+		return StudentGroup.listToArray(list);
 	}
-	
-	
+
 	@Override
 	public int getCurrentAgeByDate(int indexOfStudent) {
 		// Add your implementation here
@@ -304,7 +346,7 @@ public class StudentGroup implements StudentArrayOperation {
 		for (int i = 0, size = students.length-1; i < size; i++)
 			if (student.equals(students[i]))
 				return students[i + 1];
-		return null;
+		return student;
 	}
 	
 	// Objects require non-null
