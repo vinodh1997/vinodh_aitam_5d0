@@ -82,9 +82,7 @@ public class Student implements Comparable {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == ((Student)obj))
-			return true;
-		return this.id == ((Student)obj).getId();
+		return super.equals(obj);
 	}
 	
 	

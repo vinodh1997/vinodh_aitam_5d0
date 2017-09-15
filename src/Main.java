@@ -11,76 +11,53 @@ public class Main {
 		//You may test that your code works find here
 		//Please check that your code works and has no 
 		//compilation problems before to submit
-		StudentGroup studentGroup = new StudentGroup(10);
+		StudentArrayOperation studentGroup = new StudentGroup(10);
 		
 		DateFormat format = new SimpleDateFormat(DATE_FORMAT);
 		
-		Student[] students = new Student[5];
-		students[0] = new Student(1, "Rajeev kumar", format.parse("1997/08/13"), 80.0);
-		students[1] = new Student(2, "pokal jayaram", format.parse("1997/08/20"), 90.0);
-		students[2] = new Student(3, "vamsi krishna", format.parse("1996/06/13"), 100.0);
-		students[3] = new Student(4, "kiran krishna", format.parse("1995/03/06"), 90.0);
-		students[4] = new Student(5, "narayana rao", format.parse("1996/05/12"), 100.0);
-		
-		studentGroup.setStudents(students);
+		studentGroup.setStudents(new Student[]{
+			new Student(1, "Rajeev kumar", format.parse("1997/08/13"), 80.0),
+			new Student(2, "pokal jayaram", format.parse("1997/08/20"), 90.0),
+			new Student(3, "vamsi krishna", format.parse("1996/06/13"), 100.0),
+			new Student(4, "kiran krishna", format.parse("1995/03/06"), 90.0),
+			new Student(5, "narayana rao", format.parse("1996/05/12"), 100.0)
+		});
 		
 		// java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
 		
-		// System.out.println(studentGroup.getStudent(0));
+		/* System.out.println(studentGroup.getStudent(0));
 		
-		/* studentGroup.setStudent(new Student(6, "sfdsfsd sdf", format.parse("1996/08/13"), 98.0), 0);
+		studentGroup.setStudent(new Student(6, "sfdsfsd sdf", format.parse("1996-08-13"), 98.0), 0);
 		
 		System.out.println(studentGroup.getStudent(0)); */
 		
-		// java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		/* studentGroup.add(new Student(7, "hghj ghjgj", format.parse("1997/10/26"), 78.0), 1);
-		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); */
-		
-		/* java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); 
-		System.out.println("------------------------");
-		
-		studentGroup.remove(3);
-		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		System.out.println("------------------------");
-		*/
+		// studentGroup.add(new Student(7, "hghj ghjgj", format.parse("1997-10-26"), 78.0), 4);
 		
 		/* java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		studentGroup.remove(studentGroup.getStudent(2));
+		studentGroup.remove(3);
 		System.out.println("------------------------");
 		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		System.out.println(studentGroup.size);
 		
+		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
 		studentGroup.remove(studentGroup.getStudent(2));
 		System.out.println("------------------------");
-		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		System.out.println(studentGroup.size);
-		
-		studentGroup.remove(studentGroup.getStudent(2));
-		System.out.println("------------------------");
-		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		System.out.println(studentGroup.size); */
-		
-		
-		/* studentGroup.addFirst(new Student(6, "sfdsfsd sdf", format.parse("1996/08/13"), 98.0));
-		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		
-		studentGroup.addFirst(new Student(7, "sfdsfsd sdf", format.parse("1996/08/13"), 98.0));
 		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); */
 		
-		/* studentGroup.addLast(new Student(6, "sfdsfsd sdf", format.parse("1996/08/13"), 98.0));
-		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
+		/* studentGroup.addFirst(new Student(6, "sfdsfsd sdf", format.parse("1996-08-13"), 98.0));
+		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); */
 		
-		studentGroup.addLast(new Student(7, "sfdsfsd sdf", format.parse("1996/08/13"), 98.0));
+		/* studentGroup.addLast(new Student(6, "sfdsfsd sdf", format.parse("1996-08-13"), 98.0));
+		studentGroup.addLast(new Student(7, "sfdsfsd sdf", format.parse("1996-08-13"), 98.0));
 		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); */
 		
 		/* studentGroup.removeFromIndex(1);
 		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println);
-		System.out.println(studentGroup.size); */
+		System.out.println(studentGroup.getStudents().length); */
 		
-		/* studentGroup.removeFromElement(studentGroup.getStudent(1));
+		/* studentGroup.removeFromElement(studentGroup.getStudent(4));
 		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); */
 		
-		/* studentGroup.removeToIndex(3);
+		/* studentGroup.removeToIndex(0);
 		java.util.Arrays.stream(studentGroup.getStudents()).forEach(System.out :: println); */
 		
 		/* studentGroup.removeToElement(studentGroup.getStudent(2));
@@ -103,7 +80,7 @@ public class Main {
 		
 		// java.util.Arrays.stream(studentGroup.getStudentsWithMaxAvgMark()).forEach(System.out :: println);
 		
-		// System.out.println(studentGroup.getNextStudent(studentGroup.getStudent(0)));
+		System.out.println(studentGroup.getNextStudent(studentGroup.getStudent(0)));
 	}
 
 }
