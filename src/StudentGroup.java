@@ -46,8 +46,9 @@ public class StudentGroup implements StudentArrayOperation {
 	public void setStudents(Student[] students) {
 		// Add your implementation here
 		StudentGroup.requireNonNull(students);
-		for (Student s : students)
-			size++;
+		
+		for (this.size = 0; size < students.length && students[size] != null; size++);
+		
 		this.students = students;
 	}
 
@@ -148,7 +149,7 @@ public class StudentGroup implements StudentArrayOperation {
 		StudentGroup.requireNonNull(student);
 		
 		for (int i = 0, size = students.length; i < size; i++) {
-			if (students[i].getId() == student.getId()) {
+			if (students[i].equals(student)) {
 				remove(i);
 				return;
 			}
@@ -199,7 +200,7 @@ public class StudentGroup implements StudentArrayOperation {
 		StudentGroup.requireNonNull(student);
 		
 		for (int i = 0, size = students.length; i < size; i++) {
-			if (students[i].getId() == student.getId()) {
+			if (students[i].equals(student)) {
 				removeToIndex(i);
 				return;
 			}
@@ -343,7 +344,7 @@ public class StudentGroup implements StudentArrayOperation {
 		StudentGroup.requireNonNull(student);
 		
 		for (int i = 0, size = students.length-1; i < size; i++)
-			if (student.getId() == students[i].getId())
+			if (student.equals(students[i]))
 				return students[i + 1];
 		return null;
 	}
